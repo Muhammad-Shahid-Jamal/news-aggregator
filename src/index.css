@@ -1,1 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import "tailwindcss";
+@theme {
+  --color-primary:#152238;
+  --color-secondary:#00C6FF;
+  --color-darkblack:#222222;
+  --color-lightgray:#E5E5E5;
+  --font-lato: "Lato", sans-serif;
+}
