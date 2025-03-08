@@ -40,18 +40,38 @@ The **News Aggregator Web Application** is a platform that allows users to searc
    cd news-aggregator
 ```
 
-2. **Build the Docker image**
+2. **Set Up Environment Variables**
+- The repository includes a template for environment variables: .env.template.
+- Copy and rename it to .env:
+
+```
+  cp .env.template .env
+```
+
+- Open the .env file and update it with your API keys:
+```
+  VITE_REACT_APP_NEWS_API_KEY=your_newsapi_key
+  VITE_REACT_APP_GUARDIAN_API_KEY=your_guardian_key
+  VITE_REACT_APP_NYT_API_KEY=your_nyt_k
+```
+
+- Replace your_news_api_key, your_guardian_api_key, and your_nytimes_api_key with actual API keys from:
+  - **News API**
+  - **The Guardian API**
+  - **New York Times Developer**
+
+3. **Build the Docker image**
 ```
   docker build -t news-aggregator .
 ```
 
-3. **Run the Docker container**
+4. **Run the Docker container**
 
 ```
   docker run -d -p 8080:80 news-aggregator
 ```
 
-4. **Run the Docker container**
+5. **Run the Docker container**
 
 ```
   http://localhost:8080
