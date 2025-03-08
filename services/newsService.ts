@@ -17,7 +17,8 @@ const fetchArticlesCalls = async (
     const json = await response.json();
     return extractData(json);
   } catch (error) {
-    console.error(error.message);
+    const err = error as Error;
+    console.error(err.message);
     return [];
   }
 };
@@ -105,7 +106,6 @@ const fetchArticles = async ({
       );
     }
     const results = await Promise.all(requests);
-    console.log(results);
     return results.flat();
     return [];
   } catch (error) {
@@ -114,29 +114,3 @@ const fetchArticles = async ({
   }
 };
 export default fetchArticles;
-// export const fetchNewsAPIArticles = ({
-//   query,
-//   category,
-//   fromDate,
-// }: FetchNewsFunctionParam) => {
-//   const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${NEWS_API_KEY}`;
-//   return fetchArticles(url, (json) => json.articles);
-// };
-
-// export const fetchGuardianArticles = ({
-//   query,
-//   category,
-//   fromDate,
-// }: FetchNewsFunctionParam) => {
-//   const url = `https://content.guardianapis.com/search?q=${query}&api-key=${GUARDIAN_API_KEY}`;
-//   return fetchArticles(url, (json) => json.response.results);
-// };
-
-// export const fetchNYTArticles = ({
-//   query,
-//   category,
-//   fromDate,
-// }: FetchNewsFunctionParam) => {
-//   const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=${NYT_API_KEY}`;
-//   return fetchArticles(url, (json) => json.response.docs);
-// };

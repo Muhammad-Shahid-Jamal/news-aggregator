@@ -1,54 +1,58 @@
-# React + TypeScript + Vite
+# News Aggregator Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The **News Aggregator Web Application** is a platform that allows users to search for articles, filter results, customize their news feed, and view content in a mobile-responsive interface. The application collects news articles from various sources and presents them in a personalized format.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### 1. Article Search and Filtering
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Users can search for articles by keyword.
+- Results can be filtered based on:
+  - **Date**
+  - **Category**
+  - **Source**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 2. Personalized News Feed
+
+- Users can customize their news feed by selecting:
+  - Preferred **sources**
+  - Desired **categories**
+  - Favorite **authors**
+
+### 3. Mobile-Responsive Design
+
+- The website is fully optimized for mobile devices, ensuring a smooth and accessible browsing experience.
+
+## Installation and Setup
+
+### Prerequisites
+
+- **Docker** must be installed on your system. [Download Docker](https://www.docker.com/get-started)
+
+### Steps to Run
+
+1. **Clone the repository**
+
+```sh
+   git clone https://github.com/Muhammad-Shahid-Jamal/news-aggregator.git
+   cd news-aggregator
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Build the Docker image**
+```
+  docker build -t news-aggregator .
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. **Run the Docker container**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```
+  docker run -d -p 8080:80 news-aggregator
+```
+
+4. **Run the Docker container**
+
+```
+  http://localhost:8080
 ```

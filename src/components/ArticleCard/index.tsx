@@ -3,7 +3,6 @@ import type { Article } from '../../../types/article';
 const ArticleCard: React.FC<Article> = ({
   title,
   description,
-  publishedAt,
   url,
   source,
   imageUrl,
