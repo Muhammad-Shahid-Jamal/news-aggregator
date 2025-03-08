@@ -1,5 +1,6 @@
 export type FetchNewsFunctionParam = {
   query: string;
-  category?: string;
-  fromDate?: string;
+  category: string;
+  source: string;
+  date: string;
 };
