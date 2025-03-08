@@ -1,4 +1,3 @@
-import React from 'react';
 import type { FilterState } from '../../../hooks/useFilters';
 // Defining a type for FilterProps
 type FilterProps = {
