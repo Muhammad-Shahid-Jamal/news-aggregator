@@ -1,11 +1,23 @@
-import useNews from '../hooks/useNews';
+import { useNews } from '../context/NewsContext';
+import ArticleCard from './components/ArticleCard';
+import Layout from './components/Layout';
+import Loader from './components/Loader';
 function App() {
-  const hook = useNews('technology');
-  console.log(hook.articles);
+  const { loading, articles } = useNews();
   return (
-    <>
-      <h1 className="text-lg text-indigo-500 bg-red-800">Shahid</h1>
-    </>
+    <Layout>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="flex flex-col md:flex-row gap-4 w-full flex-wrap">
+          {articles.length ? (
+            articles.map((article) => <ArticleCard {...article} />)
+          ) : (
+            <p>no article found!!</p>
+          )}
+        </div>
+      )}
+    </Layout>
   );
 }
 
